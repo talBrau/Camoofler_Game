@@ -1,8 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHit : MonoBehaviour
+public class Player1Hit : MonoBehaviour
 {
     private Animator animator;
 
@@ -15,9 +16,17 @@ public class PlayerHit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown(KeyCode.M))
         {
             animator.SetTrigger("hit");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.name == "player 2")
+        {
+            print("2 die");
         }
     }
 }
