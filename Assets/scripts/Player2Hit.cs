@@ -15,7 +15,7 @@ public class Player2Hit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             animator.SetTrigger("hit");
         }
@@ -25,7 +25,7 @@ public class Player2Hit : MonoBehaviour
     {
         if (other.name == "player 1")
         {
-            print("1 die");
+            other.gameObject.SetActive(false);
         }
     }
 }

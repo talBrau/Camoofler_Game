@@ -26,7 +26,7 @@ public class Player1Hit : MonoBehaviour
     {
         if (other.name == "player 2")
         {
-            print("2 die");
+            other.gameObject.SetActive(false);
         }
     }
 }
