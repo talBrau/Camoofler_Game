@@ -12,21 +12,21 @@ public class Player2Move : MonoBehaviour
     void Update()
     {
         movement.x = movement.y = 0;
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.R))
         {
             movement.y = 1;
         }
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.F))
         {
             movement.y = -1;
 
         }
-        if (Input.GetKey(KeyCode.A))
+        if (Input.GetKey(KeyCode.D))
         {
             movement.x = 1;
 
         }
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.G))
         {
             movement.x = -1;
         }
