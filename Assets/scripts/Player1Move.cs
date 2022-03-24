@@ -2,68 +2,127 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Player1Move : MonoBehaviour
 {
-    public float speed = 5f;
-    public float rotSpeed = 7f;
-    private Vector2 movement;
-    private float rotation;
-    [SerializeField] private CircleCollider2D _collider;
-    [SerializeField] private Rigidbody2D rb;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    private bool isFullyInsideBox = false;
+    #region Public fields
+    public float speed;
+    public float rotSpeed ;
+    #endregion
+    
+    #region Private fields
+
+    private Vector2 _movement;
+    private float _rotation;
+    private bool _isFullyInsideBox; // only when the player is fully inside
+    private bool _isInsideBox; // when player enters box trigger
+    private Collider2D _curBox; // The current box that the player is in, Null if he doesent touch
+    
+    #endregion
+
+    #region Serialized fields
+
+    [FormerlySerializedAs("_spriteRenderer")] [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Collider2D player1Bc;
+    #endregion
+
+    #region Event functions
 
     private void Start()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        player1Bc = GetComponent<Collider2D>();
+
     }
 
     void Update()
     {
         
-        movement.x = movement.y = 0;
-        if (Input.GetKey(KeyCode.UpArrow))
+        MovePlayer();
+        CheckInsideBox();
+        UpdateCamoflage();
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Pink"))
         {
-            movement.y = 1;
+            _isInsideBox = true;
+            _curBox = col;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
-        {
-            movement.y = -1;
+    }
 
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Pink"))
+        {
+            _isInsideBox = false;
+            _curBox = null;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+    }
+
+    #endregion
+
+    #region Private methods
+
+    private void UpdateCamoflage()
+    {
+        if (_isFullyInsideBox && _movement == Vector2.zero)
         {
-            movement.x = 1;
-
-        }
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            movement.x = -1;
-
-        }
-        transform.position += movement.y*transform.up * Time.deltaTime * speed;
-        rotation = movement.x*rotSpeed;
-        transform.Rotate(Vector3.forward*rotation);
-
-        if (isFullyInsideBox && movement ==Vector2.zero) // Player is fully inside the box
-        {
-
-            _spriteRenderer.enabled = false;
+            spriteRenderer.enabled = false;
         }
         else
         {
-            _spriteRenderer.enabled = true;
-
+            spriteRenderer.enabled = true;
         }
     }
 
-    public void setInsideBox(bool isInside)
+    private void CheckInsideBox()
     {
-        isFullyInsideBox = isInside;
+        if (_isInsideBox)
+        {
+            print("PLayer1 inside");
+            if (_curBox.bounds.Contains(player1Bc.bounds.max) &&
+                _curBox.bounds.Contains(player1Bc.bounds.min))
+            {
+                _isFullyInsideBox = true;
+                print("PLayer1 fully in");
+            }
+            else
+            {
+                _isFullyInsideBox = false;
+            }
+        }
     }
-   
 
-  
+    private void MovePlayer()
+    {
+        _movement.x = _movement.y = 0;
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            _movement.y = 1;
+        }
+
+        if (Input.GetKey(KeyCode.DownArrow))
+        {
+            _movement.y = -1;
+        }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            _movement.x = 1;
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            _movement.x = -1;
+        }
+
+        transform.position += _movement.y * transform.up * Time.deltaTime * speed;
+        _rotation = _movement.x * rotSpeed;
+        transform.Rotate(Vector3.forward * _rotation);
+    }
+
+    #endregion
 }
