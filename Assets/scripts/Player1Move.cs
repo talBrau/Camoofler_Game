@@ -60,6 +60,7 @@ public class Player1Move : MonoBehaviour
         if (other.gameObject.CompareTag("Pink"))
         {
             _isInsideBox = false;
+            _isFullyInsideBox = false;
             _curBox = null;
         }
     }
@@ -84,12 +85,12 @@ public class Player1Move : MonoBehaviour
     {
         if (_isInsideBox)
         {
-            print("PLayer1 inside");
+            // print("PLayer1 inside");
             if (_curBox.bounds.Contains(player1Bc.bounds.max) &&
                 _curBox.bounds.Contains(player1Bc.bounds.min))
             {
                 _isFullyInsideBox = true;
-                print("PLayer1 fully in");
+                // print("PLayer1 fully in");
             }
             else
             {

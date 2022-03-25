@@ -56,6 +56,7 @@ public class Player2Move : MonoBehaviour
         if (other.gameObject.CompareTag("Blue"))
         {
             _isInsideBox = false;
+            _isFullyInsideBox = false;
             _curBox = null;
         }
     }
