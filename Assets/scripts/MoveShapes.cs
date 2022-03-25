@@ -18,7 +18,7 @@ public class MoveShapes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rotator.transform.Rotate(new Vector3(0, 0, -1 * rotationSpeed*Time.deltaTime), Space.Self);
+        rotator.transform.Rotate(new Vector3(0, 0, -1 * rotationSpeed * Time.deltaTime), Space.Self);
         // rotateTrianglePivot.transform.Rotate(new Vector3(0, 0, -1 * rotationSpeed), Space.Self);
     }
 }
