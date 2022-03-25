@@ -19,6 +19,5 @@ public class MoveShapes : MonoBehaviour
     void Update()
     {
         rotator.transform.Rotate(new Vector3(0, 0, -1 * rotationSpeed * Time.deltaTime), Space.Self);
-        // rotateTrianglePivot.transform.Rotate(new Vector3(0, 0, -1 * rotationSpeed), Space.Self);
     }
 }
