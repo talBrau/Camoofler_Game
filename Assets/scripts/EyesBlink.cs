@@ -7,6 +7,9 @@ public class EyesBlink : MonoBehaviour
     [SerializeField] private Animator _animator;
     private float timeTillBlink;
     private float timer;
+
+    private static readonly int Blink = Animator.StringToHash("blink");
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +25,7 @@ public class EyesBlink : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= timeTillBlink)
         {
-            _animator.SetTrigger("blink");
+            _animator.SetTrigger(Blink);
             timer = 0;
             timeTillBlink =Random.Range(2, 4);
         }
