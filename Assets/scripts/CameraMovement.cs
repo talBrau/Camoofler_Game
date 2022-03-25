@@ -10,10 +10,10 @@ public class CameraMovement : MonoBehaviour
     private Transform target;
 
     // camera limits
-    private float maxX = 21.35f;
-    private float maxY = 10.7f;
-    private float minX = -3.06f;
-    private float minY = -0.11f;
+    private float maxX = 40.5f;
+    private float maxY = 20.5f;
+    private float minX = -22.1f;
+    private float minY = -9.9f;
 
     private void Start()
     {

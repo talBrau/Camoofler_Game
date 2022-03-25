@@ -117,12 +117,12 @@ public class Player2Move : MonoBehaviour
     {
         if (_isInsideBox)
         {
-            print("PLayer2 inside");
+            // print("PLayer2 inside");
             if (_curBox.bounds.Contains(player2Bc.bounds.max) &&
                 _curBox.bounds.Contains(player2Bc.bounds.min))
             {
                 _isFullyInsideBox = true;
-                print("PLayer2 fully in");
+                // print("PLayer2 fully in");
             }
             else
             {
