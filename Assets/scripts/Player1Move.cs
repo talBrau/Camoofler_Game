@@ -132,7 +132,6 @@ public class Player1Move : MonoBehaviour
         else
         {
             _animator.SetBool("isMoving",true);
-
         }
     }
 

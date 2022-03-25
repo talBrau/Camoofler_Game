@@ -467,9 +467,10 @@ GameObject:
   m_Component:
   - component: {fileID: 183485389}
   - component: {fileID: 183485388}
+  - component: {fileID: 183485390}
   - component: {fileID: 183485391}
   - component: {fileID: 183485392}
-  - component: {fileID: 183485390}
+  - component: {fileID: 183485393}
   m_Layer: 0
   m_Name: player 2
   m_TagString: Untagged
@@ -517,8 +518,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: ac48536a98520479a8ea3be8e98e7baa, type: 3}
-  m_Color: {r: 0.8815513, g: 0.9107315, b: 1, a: 1}
+  m_Sprite: {fileID: -6437756130057852012, guid: bb6b887a75341436fa90572d82df1e90, type: 3}
+  m_Color: {r: 0.227451, g: 0.6431373, b: 0.9960785, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -598,7 +599,27 @@ MonoBehaviour:
   speed: 5
   rotSpeed: 2.5
   spriteRenderer: {fileID: 0}
+  _animator: {fileID: 0}
   player2Bc: {fileID: 0}
+--- !u!95 &183485393
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183485387}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 683abc24231c344edbe9915f5e439601, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &241618473
 GameObject:
   m_ObjectHideFlags: 0
@@ -615,7 +636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &241618474
 Transform:
   m_ObjectHideFlags: 0
@@ -799,7 +820,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.0000009536743, y: 0}
   serializedVersion: 2
-  m_Radius: 10.41155
+  m_Radius: 12.050732
 --- !u!1 &307038410
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   rotSpeed: 2.5
+  _animator: {fileID: 0}
   spriteRenderer: {fileID: 0}
   player1Bc: {fileID: 0}
 --- !u!58 &770912834

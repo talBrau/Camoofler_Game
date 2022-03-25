@@ -22,7 +22,7 @@ public class Player2Move : MonoBehaviour
     #region Serialized fields
 
     [FormerlySerializedAs("_spriteRenderer")] [SerializeField] private SpriteRenderer spriteRenderer;
-
+    [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D player2Bc;
 
     #endregion
@@ -33,6 +33,7 @@ public class Player2Move : MonoBehaviour
     {
         player2Bc = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        _animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -89,6 +90,15 @@ public class Player2Move : MonoBehaviour
         transform.position += _movement.y * transform.up * Time.deltaTime * speed;
         _rotation = _movement.x * rotSpeed;
         transform.Rotate(Vector3.forward * _rotation);
+        if (_movement == Vector2.zero)
+        {
+            _animator.SetBool("isMoving",false);
+        }
+        else
+        {
+            _animator.SetBool("isMoving",true);
+
+        }
     }
 
     private void UpdateCamoflage()
