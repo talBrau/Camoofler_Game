@@ -10,6 +10,7 @@ public class Winning : MonoBehaviour
     private RectTransform rTransform;
     [SerializeField] private Image rImage;
     private Animator animator;
+    public float reloadTime = 0.7f;
     
     private void Awake()
     {
@@ -25,11 +26,11 @@ public class Winning : MonoBehaviour
         rImage.color = winColor;
         // direction of wave
         if (whoWon == "blue")
-        { rTransform.eulerAngles = new Vector3(0, 180, 0); }
+        { rTransform.eulerAngles = new Vector3(0, 0, 0); }
         // play animation
         animator.SetTrigger("winning");
         // reload game
-        Invoke("Load", 1);
+        Invoke("Load", reloadTime);
     }
 
     private void Load()
