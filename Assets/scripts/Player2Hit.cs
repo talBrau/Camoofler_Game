@@ -5,6 +5,10 @@ using UnityEngine;
 public class Player2Hit : MonoBehaviour
 {
     private Animator animator;
+    
+    public float attackRestTime = 1;
+
+    private float nextAttackTime = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -15,15 +19,19 @@ public class Player2Hit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Time.time >= nextAttackTime)
         {
-            animator.SetTrigger("hit");
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                animator.SetTrigger("hit");
+                nextAttackTime = Time.time +attackRestTime;
+            }
         }
     }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "player 1")
+        if (other.name == "player red")
         {
             other.gameObject.SetActive(false);
         }

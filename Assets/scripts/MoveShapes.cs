@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class MoveShapes : MonoBehaviour
 {
-    private void Awake()
-    {
-        print("move shapes awake");
-    }
-
     [SerializeField] private GameObject rotator;
     // [SerializeField] private GameObject rotateTrianglePivot;
     

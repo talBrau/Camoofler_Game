@@ -68,22 +68,22 @@ public class Player2Move : MonoBehaviour
     private void MovePlayer()
     {
         _movement.x = _movement.y = 0;
-        if (Input.GetKey(KeyCode.R))
+        if (Input.GetKey(KeyCode.W))
         {
             _movement.y = 1;
         }
 
-        if (Input.GetKey(KeyCode.F))
+        if (Input.GetKey(KeyCode.S))
         {
             _movement.y = -1;
         }
 
-        if (Input.GetKey(KeyCode.D))
+        if (Input.GetKey(KeyCode.A))
         {
             _movement.x = 1;
         }
 
-        if (Input.GetKey(KeyCode.G))
+        if (Input.GetKey(KeyCode.D))
         {
             _movement.x = -1;
         }
