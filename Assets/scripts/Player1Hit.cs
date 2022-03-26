@@ -9,9 +9,9 @@ public class Player1Hit : MonoBehaviour
     [SerializeField] private Animator _playerAnimator;
     public float attackRestTime = 1;
     private float nextAttackTime = 0f;
+    [SerializeField] private GameObject wave;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         animator = GetComponent<Animator>();
         _playerAnimator = transform.parent.GetComponent<Animator>();
@@ -38,7 +38,8 @@ public class Player1Hit : MonoBehaviour
     {
         if (other.CompareTag("Player2"))
         {
-            other.gameObject.SetActive(false);
+            // other.gameObject.SetActive(false);
+            wave.GetComponent<Winning>().WinningMethode("red", transform.parent.GetComponent<SpriteRenderer>().color);
         }
     }
 }

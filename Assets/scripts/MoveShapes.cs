@@ -6,7 +6,6 @@ using UnityEngine;
 public class MoveShapes : MonoBehaviour
 {
     [SerializeField] private GameObject rotator;
-    // [SerializeField] private GameObject rotateTrianglePivot;
     
     [SerializeField] private float rotationSpeed = 0.1f;
 

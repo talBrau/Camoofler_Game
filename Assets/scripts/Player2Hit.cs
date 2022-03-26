@@ -9,6 +9,8 @@ public class Player2Hit : MonoBehaviour
     public float attackRestTime = 1;
 
     private float nextAttackTime = 0f;
+    
+    [SerializeField] private GameObject wave;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +35,8 @@ public class Player2Hit : MonoBehaviour
     {
         if (other.CompareTag("Player1"))
         {
-            other.gameObject.SetActive(false);
+            // other.gameObject.SetActive(false);
+            wave.GetComponent<Winning>().WinningMethode("blue", transform.parent.GetComponent<SpriteRenderer>().color);
         }
     }
 }
