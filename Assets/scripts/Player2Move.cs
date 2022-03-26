@@ -16,7 +16,12 @@ public class Player2Move : MonoBehaviour
     private bool _isFullyInsideBox; // only when the player is fully inside
     private bool _isInsideBox; // when player enters box trigger
     private Collider2D _curBox; // The current box that the player is in, Null if he doesent touch
-    
+    private bool _isShootAnimActive = false;
+    public bool IsShootAnimActive
+    {
+        set => _isShootAnimActive = value;
+    }
+
     #endregion
 
     #region Serialized fields
@@ -104,13 +109,16 @@ public class Player2Move : MonoBehaviour
 
     private void UpdateCamoflage()
     {
-        if (_isFullyInsideBox && _movement == Vector2.zero)
+        if (_isFullyInsideBox && _movement == Vector2.zero && !_isShootAnimActive)
         {
-            spriteRenderer.enabled = false;
+            // spriteRenderer.enabled = false;
+            _animator.SetBool("isFullyIn",true);
+            
         }
         else
         {
-            spriteRenderer.enabled = true;
+            // spriteRenderer.enabled = true;
+            _animator.SetBool("isFullyIn",false);
         }
     }
 

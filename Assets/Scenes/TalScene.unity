@@ -589,7 +589,7 @@ GameObject:
   - component: {fileID: 183485393}
   m_Layer: 0
   m_Name: player 2
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1681,6 +1681,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c811e89d8ff544dae1f09f2768bce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRestTime: 1
 --- !u!61 &606431875
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2186,6 +2187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b270abfad189c34a83b44a782b0bf0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 0}
+  attackRestTime: 1
 --- !u!61 &683873415
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2636,13 +2639,13 @@ GameObject:
   m_Component:
   - component: {fileID: 770912832}
   - component: {fileID: 770912831}
-  - component: {fileID: 770912833}
   - component: {fileID: 770912835}
   - component: {fileID: 770912834}
+  - component: {fileID: 770912833}
   - component: {fileID: 770912836}
   m_Layer: 0
   m_Name: player 1
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3467,6 +3470,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b270abfad189c34a83b44a782b0bf0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 0}
+  attackRestTime: 1
 --- !u!61 &1083614222
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5240,6 +5245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15c811e89d8ff544dae1f09f2768bce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackRestTime: 1
 --- !u!61 &1823678014
 BoxCollider2D:
   m_ObjectHideFlags: 0

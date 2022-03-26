@@ -31,7 +31,7 @@ public class Player2Hit : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.name == "player red")
+        if (other.CompareTag("Player1"))
         {
             other.gameObject.SetActive(false);
         }

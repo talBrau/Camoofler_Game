@@ -18,7 +18,12 @@ public class Player1Move : MonoBehaviour
     private bool _isFullyInsideBox; // only when the player is fully inside
     private bool _isInsideBox; // when player enters box trigger
     private Collider2D _curBox; // The current box that the player is in, Null if he doesent touch
-    
+    private bool _isShootAnimActive = false;
+    public bool IsShootAnimActive
+    {
+        set => _isShootAnimActive = value;
+    }
+
     #endregion
 
     #region Serialized fields
@@ -26,6 +31,7 @@ public class Player1Move : MonoBehaviour
     [SerializeField] private Animator _animator;
     [FormerlySerializedAs("_spriteRenderer")] [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Collider2D player1Bc;
+
     #endregion
 
     #region Event functions
@@ -40,11 +46,12 @@ public class Player1Move : MonoBehaviour
 
     void Update()
     {
-        
         MovePlayer();
         CheckInsideBox();
         UpdateCamoflage();
     }
+
+
 
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -71,26 +78,29 @@ public class Player1Move : MonoBehaviour
 
     private void UpdateCamoflage()
     {
-        if (_isFullyInsideBox && _movement == Vector2.zero)
+        if (_isFullyInsideBox && _movement == Vector2.zero && !_isShootAnimActive)
         {
-            spriteRenderer.enabled = false;
+            // spriteRenderer.enabled = false;
+            _animator.SetBool("isFullyIn",true);
+            
         }
         else
         {
-            spriteRenderer.enabled = true;
+            // spriteRenderer.enabled = true;
+            _animator.SetBool("isFullyIn",false);
         }
+
+        
     }
 
     private void CheckInsideBox()
     {
         if (_isInsideBox)
         {
-            // print("PLayer1 inside");
             if (_curBox.bounds.Contains(player1Bc.bounds.max) &&
                 _curBox.bounds.Contains(player1Bc.bounds.min))
             {
                 _isFullyInsideBox = true;
-                // print("PLayer1 fully in");
             }
             else
             {
@@ -121,6 +131,8 @@ public class Player1Move : MonoBehaviour
         {
             _movement.x = -1;
         }
+
+       
 
         transform.position += _movement.y * transform.up * Time.deltaTime * speed;
         _rotation = _movement.x * rotSpeed;
