@@ -31,6 +31,8 @@ public class Player1Move : MonoBehaviour
     [SerializeField] private Animator _animator;
     [FormerlySerializedAs("_spriteRenderer")] [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Collider2D player1Bc;
+    [SerializeField] private Animator _eyesAnimator;
+    [SerializeField] private EyesBlink _eyesBlink;
 
     #endregion
 
@@ -41,7 +43,8 @@ public class Player1Move : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         player1Bc = GetComponent<Collider2D>();
         _animator = GetComponent<Animator>();
-
+        _eyesBlink = GetComponentInChildren<EyesBlink>();
+        _eyesAnimator = _eyesBlink.gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -82,12 +85,15 @@ public class Player1Move : MonoBehaviour
         {
             // spriteRenderer.enabled = false;
             _animator.SetBool("isFullyIn",true);
+            _eyesAnimator.SetBool("isHiding",true);
             
         }
         else
         {
             // spriteRenderer.enabled = true;
             _animator.SetBool("isFullyIn",false);
+            _eyesAnimator.SetBool("isHiding",false);
+
         }
 
         
