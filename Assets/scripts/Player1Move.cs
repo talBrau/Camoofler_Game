@@ -7,8 +7,11 @@ using UnityEngine.Serialization;
 public class Player1Move : MonoBehaviour
 {
     #region Public fields
-    public float speed;
+
+    public float initialSpeed;
     public float rotSpeed ;
+    public float highSpeed;
+    public float acceleratingTime;
     #endregion
     
     #region Private fields
@@ -19,6 +22,9 @@ public class Player1Move : MonoBehaviour
     private bool _isInsideBox; // when player enters box trigger
     private Collider2D _curBox; // The current box that the player is in, Null if he doesent touch
     private bool _isShootAnimActive = false;
+    private float slowDownTime = 0f;
+    private float speed;
+
     public bool IsShootAnimActive
     {
         set => _isShootAnimActive = value;
@@ -39,7 +45,9 @@ public class Player1Move : MonoBehaviour
     #region Event functions
 
     private void Start()
+
     {
+        speed = initialSpeed;
         spriteRenderer = GetComponent<SpriteRenderer>();
         player1Bc = GetComponent<Collider2D>();
         _animator = GetComponent<Animator>();
@@ -52,6 +60,11 @@ public class Player1Move : MonoBehaviour
         MovePlayer();
         CheckInsideBox();
         UpdateCamoflage();
+
+        if (Time.time >= slowDownTime)
+        {
+            speed = initialSpeed;
+        }
     }
 
 
@@ -62,6 +75,14 @@ public class Player1Move : MonoBehaviour
         {
             _isInsideBox = true;
             _curBox = col;
+        }
+
+        if (col.gameObject.name == "Firefly")
+        {
+            print("ll");
+            speed = highSpeed;
+            slowDownTime = Time.time + acceleratingTime;
+            // Invoke("SloeDown", acceleratingTime);
         }
     }
 
@@ -78,6 +99,11 @@ public class Player1Move : MonoBehaviour
     #endregion
 
     #region Private methods
+
+    // private void SloeDown()
+    // {
+    //     speed = initialSpeed;
+    // }
 
     private void UpdateCamoflage()
     {
