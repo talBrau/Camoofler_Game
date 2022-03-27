@@ -26,7 +26,8 @@ public class Player1Hit : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.M))
             {
                 animator.SetTrigger("hit");
-                sfxTounge.Play();
+                if (sfxTounge)
+                { sfxTounge.Play(); }
                 nextAttackTime = Time.time + attackRestTime;
             }
         }

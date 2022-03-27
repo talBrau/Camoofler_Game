@@ -35,6 +35,6 @@ public class Winning : MonoBehaviour
 
     private void Load()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("Eitan Scene");
     }
 }

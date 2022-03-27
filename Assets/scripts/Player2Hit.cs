@@ -30,7 +30,8 @@ public class Player2Hit : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 animator.SetTrigger("hit");
-                sfxTounge.Play();
+                if (sfxTounge)
+                { sfxTounge.Play(); }
                 nextAttackTime = Time.time +attackRestTime;
             }
         }
