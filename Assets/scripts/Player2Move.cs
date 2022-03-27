@@ -5,8 +5,11 @@ using UnityEngine.Serialization;
 public class Player2Move : MonoBehaviour
 {
     #region Public fields
-    public float speed;
+    public float initialSpeed;
     public float rotSpeed ;
+    public float highSpeed;
+    public float acceleratingTime;
+
     #endregion
 
     #region Private fields
@@ -17,6 +20,9 @@ public class Player2Move : MonoBehaviour
     private bool _isInsideBox; // when player enters box trigger
     private Collider2D _curBox; // The current box that the player is in, Null if he doesent touch
     private bool _isShootAnimActive = false;
+    private float slowDownTime = 0f;
+    private float speed;
+    
     public bool IsShootAnimActive
     {
         set => _isShootAnimActive = value;
@@ -38,6 +44,7 @@ public class Player2Move : MonoBehaviour
 
     private void Start()
     {
+        speed = initialSpeed;
         player2Bc = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         _animator = GetComponent<Animator>();
@@ -50,6 +57,11 @@ public class Player2Move : MonoBehaviour
         MovePlayer();
         CheckInsideBox();
         UpdateCamoflage();
+        
+        if (Time.time >= slowDownTime)
+        {
+            speed = initialSpeed;
+        }
     }
     private void OnTriggerEnter2D(Collider2D col)
     {
@@ -57,6 +69,12 @@ public class Player2Move : MonoBehaviour
         {
             _isInsideBox = true;
             _curBox = col;
+        }
+        
+        if (col.gameObject.name == "Firefly")
+        {
+            speed = highSpeed;
+            slowDownTime = Time.time + acceleratingTime;
         }
     }
 

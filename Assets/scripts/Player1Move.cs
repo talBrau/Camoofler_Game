@@ -12,6 +12,7 @@ public class Player1Move : MonoBehaviour
     public float rotSpeed ;
     public float highSpeed;
     public float acceleratingTime;
+    
     #endregion
     
     #region Private fields
@@ -79,10 +80,8 @@ public class Player1Move : MonoBehaviour
 
         if (col.gameObject.name == "Firefly")
         {
-            print("ll");
             speed = highSpeed;
             slowDownTime = Time.time + acceleratingTime;
-            // Invoke("SloeDown", acceleratingTime);
         }
     }
 
@@ -99,11 +98,6 @@ public class Player1Move : MonoBehaviour
     #endregion
 
     #region Private methods
-
-    // private void SloeDown()
-    // {
-    //     speed = initialSpeed;
-    // }
 
     private void UpdateCamoflage()
     {
