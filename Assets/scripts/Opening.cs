@@ -12,5 +12,10 @@ public class Opening : MonoBehaviour
         {
             SceneManager.LoadScene("Eitan Scene");
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }

@@ -58,6 +58,10 @@ public class Player1Move : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         MovePlayer();
         CheckInsideBox();
         UpdateCamoflage();

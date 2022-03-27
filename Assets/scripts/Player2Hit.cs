@@ -9,13 +9,17 @@ public class Player2Hit : MonoBehaviour
     public float attackRestTime = 1;
 
     private float nextAttackTime = 0f;
-    
+    private bool isShootAnimActive;
+
+    [SerializeField]  AudioSource sfxTounge;
+
     [SerializeField] private GameObject wave;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        sfxTounge = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -26,17 +30,21 @@ public class Player2Hit : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
                 animator.SetTrigger("hit");
+                sfxTounge.Play();
                 nextAttackTime = Time.time +attackRestTime;
             }
         }
+        isShootAnimActive = animator.GetCurrentAnimatorStateInfo(0).IsName("newToungeAnim");
+        transform.parent.GetComponent<Player2Move>().IsShootAnimActive = isShootAnimActive;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player1"))
+        if (other.CompareTag("Player1") && isShootAnimActive)
         {
-            // other.gameObject.SetActive(false);
-            wave.GetComponent<Winning>().WinningMethode("blue", transform.parent.GetComponent<SpriteRenderer>().color);
+            Color winColor = transform.parent.GetComponent<SpriteRenderer>().color;
+            winColor.a = 1;
+            wave.GetComponent<Winning>().WinningMethode("blue", winColor);
         }
     }
 }

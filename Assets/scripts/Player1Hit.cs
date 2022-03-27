@@ -6,15 +6,16 @@ using UnityEngine;
 public class Player1Hit : MonoBehaviour
 {
     private Animator animator;
-    [SerializeField] private Animator _playerAnimator;
     public float attackRestTime = 1;
     private float nextAttackTime = 0f;
     [SerializeField] private GameObject wave;
+    private bool isShootAnimActive;
+    [SerializeField] private AudioSource sfxTounge;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
-        _playerAnimator = transform.parent.GetComponent<Animator>();
+        sfxTounge = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,22 +25,23 @@ public class Player1Hit : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
-                _playerAnimator.SetTrigger("shoot");
                 animator.SetTrigger("hit");
-                nextAttackTime = Time.time +attackRestTime;
+                sfxTounge.Play();
+                nextAttackTime = Time.time + attackRestTime;
             }
         }
 
-        transform.parent.GetComponent<Player1Move>().IsShootAnimActive =
-            animator.GetCurrentAnimatorStateInfo(0).IsName("newToungeAnim");
+        isShootAnimActive = animator.GetCurrentAnimatorStateInfo(0).IsName("newToungeAnim");
+        transform.parent.GetComponent<Player1Move>().IsShootAnimActive = isShootAnimActive;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player2"))
+        if (other.CompareTag("Player2") && isShootAnimActive)
         {
-            // other.gameObject.SetActive(false);
-            wave.GetComponent<Winning>().WinningMethode("red", transform.parent.GetComponent<SpriteRenderer>().color);
+            Color winColor = transform.parent.GetComponent<SpriteRenderer>().color;
+            winColor.a = 1;
+            wave.GetComponent<Winning>().WinningMethode("red", winColor);
         }
     }
 }
