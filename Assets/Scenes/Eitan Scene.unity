@@ -2592,13 +2592,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506358485}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 14.2, z: 3.90027}
   m_LocalScale: {x: 0.43520004, y: 0.43520004, z: 0.4352}
   m_Children: []
   m_Father: {fileID: 1615699796}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!95 &506358489
 Animator:
   serializedVersion: 3
@@ -5385,13 +5385,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982193703}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: -0, z: 0.7071068, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 14.2, z: 3.90027}
   m_LocalScale: {x: 0.43520004, y: 0.43520004, z: 0.4352}
   m_Children: []
   m_Father: {fileID: 1047065623}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
 --- !u!95 &982193705
 Animator:
   serializedVersion: 3
@@ -5893,7 +5893,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1047065621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: -2, z: -3.9002697}
+  m_LocalPosition: {x: -7.2, y: -0.1, z: -3.9002697}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 982193704}
@@ -6578,7 +6578,7 @@ RectTransform:
   m_GameObject: {fileID: 1265268635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.099962, y: 4.6509376, z: 1}
+  m_LocalScale: {x: 0.43358722, y: 4.825348, z: 1}
   m_Children: []
   m_Father: {fileID: 697400778}
   m_RootOrder: 0
@@ -6601,14 +6601,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5372549, g: 0.5372549, b: 0.5372549, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: cff0e8aef855ac248b25e0ec72f053ef, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10096,7 +10096,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1245589d9a26379449581f8b0fd788aa, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.357
+  m_Volume: 0.192
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10350,7 +10350,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1927655481}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.12, y: 19.279999, z: -10}
+  m_LocalPosition: {x: 15.18, y: 16.08, z: -10}
   m_LocalScale: {x: 1.2206, y: 1.3579174, z: 1.2206}
   m_Children: []
   m_Father: {fileID: 0}
@@ -10391,7 +10391,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.4139385
+  orthographic size: 8.252986
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

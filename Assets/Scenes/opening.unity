@@ -248,10 +248,10 @@ GameObject:
   m_Component:
   - component: {fileID: 52001538}
   - component: {fileID: 52001537}
-  - component: {fileID: 52001536}
   - component: {fileID: 52001535}
   - component: {fileID: 52001534}
   - component: {fileID: 52001533}
+  - component: {fileID: 52001536}
   m_Layer: 0
   m_Name: player 1
   m_TagString: Player1
@@ -267,7 +267,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52001532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 33994e99f0a3849f2a774db7a4a40c63, type: 2}
   m_CullingMode: 0
@@ -285,7 +285,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52001532}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -322,18 +322,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52001532}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bbf02061faffc82409d25821409953ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 85ec56c18b731aa4ebe9de320c9c8f84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   initialSpeed: 7.5
-  rotSpeed: 2.5
+  rotSpeed: 1
   highSpeed: 0
   acceleratingTime: 0
-  _animator: {fileID: 0}
   spriteRenderer: {fileID: 0}
-  player1Bc: {fileID: 0}
+  _animator: {fileID: 0}
+  player2Bc: {fileID: 0}
   _eyesAnimator: {fileID: 0}
   _eyesBlink: {fileID: 0}
 --- !u!212 &52001537
@@ -1308,10 +1308,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 731612410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b270abfad189c34a83b44a782b0bf0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 15c811e89d8ff544dae1f09f2768bce2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerAnimator: {fileID: 0}
   attackRestTime: 1
   wave: {fileID: 0}
 --- !u!61 &731612413
@@ -1852,8 +1851,8 @@ GameObject:
   - component: {fileID: 1657909670}
   - component: {fileID: 1657909669}
   - component: {fileID: 1657909668}
-  - component: {fileID: 1657909667}
   - component: {fileID: 1657909666}
+  - component: {fileID: 1657909667}
   m_Layer: 0
   m_Name: player 2
   m_TagString: Player2
@@ -1869,7 +1868,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657909665}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 683abc24231c344edbe9915f5e439601, type: 2}
   m_CullingMode: 0
@@ -1887,18 +1886,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657909665}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85ec56c18b731aa4ebe9de320c9c8f84, type: 3}
+  m_Script: {fileID: 11500000, guid: bbf02061faffc82409d25821409953ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 0
-  rotSpeed: 2.5
+  initialSpeed: 7.5
+  rotSpeed: 1
   highSpeed: 0
   acceleratingTime: 0
-  spriteRenderer: {fileID: 0}
   _animator: {fileID: 0}
-  player2Bc: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  player1Bc: {fileID: 0}
   _eyesAnimator: {fileID: 0}
   _eyesBlink: {fileID: 0}
 --- !u!50 &1657909668
@@ -1929,7 +1928,7 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1657909665}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -2051,9 +2050,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1680783521}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15c811e89d8ff544dae1f09f2768bce2, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b270abfad189c34a83b44a782b0bf0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerAnimator: {fileID: 0}
   attackRestTime: 1
   wave: {fileID: 0}
 --- !u!61 &1680783524
