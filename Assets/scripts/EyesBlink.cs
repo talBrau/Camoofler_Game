@@ -31,7 +31,6 @@ public class EyesBlink : MonoBehaviour
         }
         
         
-        
     }
 
     private IEnumerator blinkInSec(float sec)
