@@ -11,12 +11,14 @@ public class Winning : MonoBehaviour
     [SerializeField] private Image rImage;
     private Animator animator;
     public float reloadTime = 0.7f;
+    [SerializeField] private AudioSource waveSound;
     
     private void Awake()
     {
         rTransform = GetComponent<RectTransform>();
         rImage = GetComponent<Image>();
         animator = GetComponent<Animator>();
+        waveSound = GetComponent<AudioSource>();
     }
 
     /// param whoWon : true = red player. false = blue player
@@ -29,6 +31,8 @@ public class Winning : MonoBehaviour
         { rTransform.eulerAngles = new Vector3(0, 0, 0); }
         // play animation
         animator.SetTrigger("winning");
+        waveSound.pitch += 1;
+        waveSound.Play();
         // reload game
         Invoke("Load", reloadTime);
     }

@@ -40,6 +40,7 @@ public class Player1Move : MonoBehaviour
     [SerializeField] private Collider2D player1Bc;
     [SerializeField] private Animator _eyesAnimator;
     [SerializeField] private EyesBlink _eyesBlink;
+    [SerializeField] private AudioSource speedSfx;
 
     #endregion
 
@@ -54,6 +55,7 @@ public class Player1Move : MonoBehaviour
         _animator = GetComponent<Animator>();
         _eyesBlink = GetComponentInChildren<EyesBlink>();
         _eyesAnimator = _eyesBlink.gameObject.GetComponent<Animator>();
+        speedSfx = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -84,6 +86,7 @@ public class Player1Move : MonoBehaviour
 
         if (col.gameObject.name == "Firefly")
         {
+            speedSfx.Play();
             speed = highSpeed;
             slowDownTime = Time.time + acceleratingTime;
         }

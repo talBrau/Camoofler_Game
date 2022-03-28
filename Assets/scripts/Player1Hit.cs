@@ -40,6 +40,7 @@ public class Player1Hit : MonoBehaviour
     {
         if (other.CompareTag("Player2") && isShootAnimActive)
         {
+            other.gameObject.SetActive(false);
             Color winColor = transform.parent.GetComponent<SpriteRenderer>().color;
             winColor.a = 1;
             wave.GetComponent<Winning>().WinningMethode("red", winColor);
